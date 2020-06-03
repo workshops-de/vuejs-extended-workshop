@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "dummyjs": "^1.1.7",
     "vue": "^2.6.11"
   },
   "devDependencies": {
