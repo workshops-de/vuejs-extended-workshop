@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <h2>accordion component</h2>
+    <Tabs />
     <h2>custom dummy directive</h2>
     <p v-dummy="10">Should output 10: </p>
     <p v-dummy="'2,5'">Is between 2 and 5: </p>
@@ -24,10 +26,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
+import Tabs from './components/Tabs.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
+    Tabs,
     HelloWorld,
   },
   data() {
