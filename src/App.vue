@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <div>
+      Without filter:
+      {{ msg }}
+    </div>
+    <div>
+      With filter:
+      {{ msg | truncate(11, '...') }}
+    </div>
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
 </template>
@@ -13,6 +20,11 @@ export default Vue.extend({
   name: 'App',
   components: {
     HelloWorld,
+  },
+  data() {
+    return {
+      msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    };
   },
 });
 </script>
