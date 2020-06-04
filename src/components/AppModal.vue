@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" :class="{'modal--is-active': isOpen}">
+  <div class="modal" :class="{'modal--is-active': visibility}">
     <div class="modal__content">
       <h1><slot name="headline">This is the headline</slot></h1>
       <slot></slot>
@@ -18,10 +18,14 @@
 export default {
   name: 'AppModal',
   props: {
-    isOpen: {
+    visibility: {
       type: Boolean,
       default: false,
     },
+  },
+  model: {
+    prop: 'visibility',
+    event: 'update',
   },
   methods: {
     ok() {
@@ -40,7 +44,7 @@ export default {
       this.updateVisibility(false);
     },
     updateVisibility(visibility) {
-      this.$emit('update-visibility', visibility);
+      this.$emit('update', visibility);
     },
   },
 };

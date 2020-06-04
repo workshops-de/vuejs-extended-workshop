@@ -2,7 +2,7 @@
   <div id="app">
     <h2>modal component</h2>
     <button @click="showModal = true">Open</button>
-    <AppModal :is-open="showModal" @update-visibility="showModal = $event">
+    <AppModal v-model="showModal">
       <template #headline>This is the overridden headline</template>
       <template #default>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mattis nisl semper leo
