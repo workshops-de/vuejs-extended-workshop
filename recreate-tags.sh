@@ -18,6 +18,7 @@ for line in $logs; do
   message=${message//'*'/}
   message=${message//'('/}
   message=${message//')'/}
+  message=${message//\'/}
 
   git tag $message $sha
   echo $message
