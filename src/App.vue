@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <h2>user profile</h2>
+    <UserProfile v-bind.sync="profile" />
     <h2>modal component</h2>
     <button @click="showModal = true">Open</button>
     <AppModal v-model="showModal">
@@ -49,10 +51,12 @@ import Vue from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import Tabs from './components/Tabs.vue';
 import AppModal from './components/AppModal.vue';
+import UserProfile from './components/UserProfile.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
+    UserProfile,
     AppModal,
     Tabs,
     HelloWorld,
@@ -62,6 +66,10 @@ export default Vue.extend({
       msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       dataVal: 255,
       showModal: false,
+      profile: {
+        username: 'gamerTag',
+        email: 'email@domain.com',
+      },
     };
   },
 });
