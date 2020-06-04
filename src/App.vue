@@ -10,6 +10,16 @@
           efficitur. Aliquam porta lorem at ipsum molestie ultricies. Nulla nec tincidunt sem.
           Nullam tempor bibendum nibh, vel ultrices ante faucibus eu.</p>
       </template>
+      <template #footer="{ok, cancel, close}">
+        <p>
+          This is my custom footer
+        </p>
+        <ul>
+          <li><a href="#" @click.prevent="ok">OK!</a></li>
+          <li><a href="#" @click.prevent="cancel">CANCEL!</a></li>
+          <li><a href="#" @click.prevent="close">CLOSE!</a></li>
+        </ul>
+      </template>
     </AppModal>
     <h2>accordion component</h2>
     <Tabs />

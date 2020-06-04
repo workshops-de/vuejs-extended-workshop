@@ -3,9 +3,13 @@
     <div class="modal__content">
       <h1><slot name="headline">This is the headline</slot></h1>
       <slot></slot>
-      <p>
-        <button @click="$emit('update-visibility', false)">Close</button>
-      </p>
+      <slot name="footer" :ok="ok" :cancel="cancel" :close="close">
+        <p>
+          <button @click="ok">OK</button>
+          <button @click="cancel">Cancel</button>
+          <button @click="close">Close</button>
+        </p>
+      </slot>
     </div>
   </div>
 </template>
@@ -17,6 +21,26 @@ export default {
     isOpen: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    ok() {
+      console.log('ok clicked');
+      this.$emit('ok');
+      this.updateVisibility(false);
+    },
+    cancel() {
+      console.log('cancel clicked');
+      this.$emit('cancel');
+      this.updateVisibility(false);
+    },
+    close() {
+      console.log('close clicked');
+      this.$emit('close');
+      this.updateVisibility(false);
+    },
+    updateVisibility(visibility) {
+      this.$emit('update-visibility', visibility);
     },
   },
 };
