@@ -1,5 +1,12 @@
 <template>
   <div id="app">
+    <h2>base input</h2>
+    <BaseInput
+      label="Label"
+      v-model="value"
+      placeholder="What is your name?"
+      @focus="doSomething"
+    />
     <h2>user profile</h2>
     <UserProfile v-bind.sync="profile" />
     <h2>modal component</h2>
@@ -52,10 +59,12 @@ import HelloWorld from './components/HelloWorld.vue';
 import Tabs from './components/Tabs.vue';
 import AppModal from './components/AppModal.vue';
 import UserProfile from './components/UserProfile.vue';
+import BaseInput from './components/BaseInput.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
+    BaseInput,
     UserProfile,
     AppModal,
     Tabs,
@@ -70,7 +79,13 @@ export default Vue.extend({
         username: 'gamerTag',
         email: 'email@domain.com',
       },
+      value: '',
     };
+  },
+  methods: {
+    doSomething() {
+      console.log('input focused');
+    },
   },
 });
 </script>
